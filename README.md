@@ -17,7 +17,7 @@ Here are some of the features we will be testing this model upon:
 
 - **Quantitative Features**: n_steps, n-ingredients
 - **Response Variable** Recipe Satisfaction (which is omitted from the features)
-- **Categorical Variable** tags
+- **Categorical Variable** tags (nominal since there is no ranking/hierachy among the different tags)
 
 Therefore, that leaves us with the only categorical variable, which is tags. I will be one hot encoding this column to quantify this column so that it can be used as a feature. It creates every unique tag as a seperate column which can be included in the predictive model. For the other transformations, since there are no more categorical variables to do transformations on, I will be doing a log transformation on the n_steps column because it the data is skewed to the right. The log transformation is good for reducing distributions that are skewed to the right.
 
