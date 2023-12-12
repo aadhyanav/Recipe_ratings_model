@@ -11,8 +11,8 @@ As the distribution shows, there is a massive imbalance between "Satisfactory" (
 
 ## Baseline Model
 
-This model intends to predict whether a recipe will turn out to be sastifactory or unsatisfactory
-Here are some of the features we will be testing this model upon:
+This model intends to predict whether a recipe will turn out to be sastifactory or unsatisfactory.
+\n Here are some of the features we will be testing this model upon:
 
 **Quantitative Features**: minutes, n_steps, n-ingredients, average_rating
 **Response Variable** Recipe Satisfaction (which is omitted from the features)
