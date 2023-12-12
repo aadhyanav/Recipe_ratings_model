@@ -11,4 +11,11 @@ As the distribution shows, there is a massive imbalance between "Satisfactory" (
 
 ## Baseline Model
 
+This model intends to predict whether a recipe will turn out to be sastifactory or unsatisfactory
+Here are some of the features we will be testing this model upon:
+
+**Quantitative Features**: minutes, n_steps, n-ingredients, average_rating
+**Response Variable** Recipe Satisfaction (which is omitted from the features)
+Therefore, that leaves us with the only categorical variable, which is tags. I will be one hot encoding this column to quantify this column so that it can be used as a feature. For the other transformations, since there are no more categorical variables to do transformations on, I will be standardizing the minutes feature since the distribution is heavily skewed to the right. 
+
 
