@@ -23,6 +23,10 @@ Therefore, that leaves us with the only categorical variable, which is tags. I w
 
 Before using a randomforestclassifier to run the pipelines through, I made sure to limit the tree depth to reduce runtime. The model had an f-1 score of 88 percent, which is reasonably good, but can definetly be improved upon. 
 
+## Final Model
+
+## Fairness Analysis
+
 
 
 
