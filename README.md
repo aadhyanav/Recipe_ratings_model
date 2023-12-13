@@ -21,7 +21,7 @@ Here are some of the features we will be testing this model upon:
 
 Therefore, that leaves us with the only categorical variable, which is tags. I will be one hot encoding this column to quantify this column so that it can be used as a feature. It creates every unique tag as a seperate column which can be included in the predictive model. For the other transformations, since there are no more categorical variables to do transformations on, I will be doing a log transformation on the n_steps column because it the data is skewed to the right. The log transformation is good for reducing distributions that are skewed to the right.
 
-Before using a randomforestclassifier to run the pipelines through, I made sure to limit the tree depth to reduce runtime. The model had an f-1 score of 88 percent, which is reasonably good, but can definetly be improved upon. 
+Before using a RandomForestClassifer to run the pipelines through, I made sure to limit the tree depth to reduce runtime. The model had an F-1 score of 88 percent, which is reasonably good, but can definetly be improved upon. Considering how this model only uses 3 of the original columns from the dataset, to increase the performance more data can be added that ensures satisfaction. 
 
 ## Final Model
 
