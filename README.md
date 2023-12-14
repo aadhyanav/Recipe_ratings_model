@@ -44,6 +44,12 @@ I used a RandomForestClassifaction because of how well it works with datasets th
 
 ## Fairness Analysis
 
+The question that I have picked is: Does my model perform worse for recipes that have more than 8 ingredients versus recipes that have less than 8 ingredients?
+- Null Hypothesis: The model is fair, and the accuracy is the same for both groups: groups with more than 8 ingredients versus groups with less than 8 ingredients
+- Alternative Hypothesis: The model is not fair, the accuracy is higher for groups with more than 8 ingredients.
+- Test statistic: Difference in accuracy scores
+- Significance level: 0.05
+
 
 
 
