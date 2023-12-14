@@ -26,8 +26,11 @@ Before using a RandomForestClassifer to run the pipelines through, I made sure t
 ## Final Model
 
 I added a new column called "bad_review" which specifically catches the words "awful" "bad" and "zero" in the review - indicating negative review which could help predict whether an recipe is considered to be successful or not. As for the 2 new transformations, in addition to the previous pipeline I did a quantile transformation on n_steps and standardized the n_ingredients column. 
+
 <iframe src="assets/log.html" width=800 height=600 frameBorder=0></iframe>
+
 As for n_steps, since I logged it right before doing the quantile transformation, the logged distribution looks like the image above. The reason I felt that doing a quantile transformation would be best is because quantile transformations are less sensitive to outliers and since the numbers are logged which means that the variance is not constant - this would help normalize the distribution more than the normal z-score transformation. 
+
 I initially tried using Binarizer() on my newly made bad_review column, but realised that the pipeline intereprets boolean numbers into integers and that Binarizer() is more helpful for columns with more categories. Honestly, given the dataset I felt I was pretty limited over what other columns I could add into my pipeline considering how there were colums like 'id', 'name', 'steps' that were pretty unrelated with recipe ratings. 
 
 I used a RandomForestClassifaction because of how well it works with datasets that are unbalanced. As for the CVsearch grid in finding the best possible parameters for my model, the process took a really long time in my jupyter notebook. Therefore, I felt that most likely the bigger parameters are better because more data can be fit inside - this a higher f-1 score due to more variation. 
