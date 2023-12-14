@@ -50,7 +50,7 @@ The question that I have picked is: Does my model perform worse for recipes that
 - Test statistic: Difference in accuracy scores
 - Significance level: 0.05
 
-According to my findings, the permutation p-value is 1.0, which indicates that the null hypothesis should be strongly rejected. Therefore the model is definetly not fair and the accuracy score is indeed higher for groups with more than 8 ingredients. 
+According to my findings, the permutation p-value is 1.0, which indicates that the null hypothesis should be strongly rejected. Therefore the model is definetly not fair and the accuracy score is indeed higher for groups with more than 8 ingredients. This is not a surprise to me judging from the distribution of the ingredients column, however maybe adding more quantitative variables could reduce the p-value.
 
 
 
