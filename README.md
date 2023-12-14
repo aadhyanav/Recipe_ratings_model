@@ -39,8 +39,8 @@ For ingredients, I felt that standardizing the values would be the best transfor
 
 I initially tried using Binarizer() on my newly made bad_review column, but realised that the pipeline intereprets boolean numbers into integers and that Binarizer() is more helpful for columns with more categories. Honestly, given the dataset I felt I was pretty limited over what other columns I could add into my pipeline considering how there were colums like 'id', 'name', 'steps' that were pretty unrelated with recipe ratings. 
 
-### Modeling Algorithm and Hyperparameters
-I used a RandomForestClassifaction because of how well it works with datasets that are unbalanced. As for the CVsearch grid in finding the best possible parameters for my model, the process took a really long time in my jupyter notebook. Therefore, I felt that most likely the bigger parameters are better because more data can be fit inside - this a higher f-1 score due to more variation. 
+### Modeling Algorithm, Hyperparameters, and Performance
+I used a RandomForestClassifaction because of how well it works with datasets that are unbalanced. As for the CVsearch grid in finding the best possible parameters for my model, the process took a really long time in my jupyter notebook. The best performance parameters ended up having a max depth of 120 and 50 estimators for the random forests. It seems like the model becomes more accurate with the more depth that is added, but for runtime purposes the largest depth parameter that I tested was 120. 
 
 ## Fairness Analysis
 
