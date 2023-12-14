@@ -31,7 +31,9 @@ I added a new column called "bad_review" which specifically catches the words "a
 
 As for n_steps, since I logged it right before doing the quantile transformation, the logged distribution looks like the image above. The reason I felt that doing a quantile transformation would be best is because quantile transformations are less sensitive to outliers and since the numbers are logged which means that the variance is not constant - this would help normalize the distribution more than the normal z-score transformation. 
 
+<iframe src="assets/ingredients.html" width=800 height=600 frameBorder=0></iframe>
 
+For ingredients, I felt that standardizing the values would be the best transformation because the distribution is heavily skewed to the left and has a long tail. 
 
 I initially tried using Binarizer() on my newly made bad_review column, but realised that the pipeline intereprets boolean numbers into integers and that Binarizer() is more helpful for columns with more categories. Honestly, given the dataset I felt I was pretty limited over what other columns I could add into my pipeline considering how there were colums like 'id', 'name', 'steps' that were pretty unrelated with recipe ratings. 
 
