@@ -45,6 +45,63 @@ Here's a breakdown on some of the important columns in the dataset.
 | 412 broccoli casserole               | 306168 |        40 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        | [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]    |         6 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 |        5 |                5 |          20 |
 | 412 broccoli casserole               | 306168 |        40 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        | [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]    |         6 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 |        5 |                5 |          20 |
 
+### Pivot Tables, Aggregate Statistics
+
+|   rating |   total_fat |
+|---------:|------------:|
+|        1 |     37.0564 |
+|        2 |     32.7669 |
+|        3 |     31.6405 |
+|        4 |     29.9404 |
+|        5 |     31.7924 |
+
+This is a pivot tabel that shows the mean total_fat for each rating in general. I used this because it is easier to look at since the cateogories for ratings are broader versus average_rating which has sperates the rating by .1 which is hard to find trends with. As we can see in the pivot table, there seems to be a slight decrease in fat as ratings increase. The mean total fat is about 37 for when the rating is 1 star, versus the total fat being about 32 when the rating is 5. But considering the distribution of ratings, it could be that since there are less observations with lower ratings the means tend to be higher. 
+
+|   rating |   total_fat |
+|---------:|------------:|
+|        1 |          19 |
+|        2 |          20 |
+|        3 |          20 |
+|        4 |          19 |
+|        5 |          20 |
+
+This pivot table focuses on the identical columns but examines the median instead of the mean. Considering that the mean can be significantly impacted by outliers and distribution patterns, analyzing the median offers an alternative viewpoint on the distribution of the "total_fat" column concerning ratings.
+
+## Assesment of Missingness
+
+### NMAR analysis
+I think that the description column of the dataset is NMAR. It could be that users leave the description for a recipe as blank because they feel that adding a description takes too much time and they may feel that it is redundant. To make the description column as MAR and to see if it depends on external observations, we can see if the addition of a time taken to fill out the review survey is added to see if users are truly rushing to write their reviews and tend to skip out on the description because they feel that it takes to much time and because their recipe is self-explanatory.
+
+### Missingness Dependency
+
+Test #1
+Null Hypothesis (H0): The distribution of "n_steps" when the description is missing is identical to the distribution of "n_steps" when the description is not missing.
+
+Alternative Hypothesis (Alt Hyp): The distributions of "n_steps" are different between cases where the description is missing and cases where it is not.
+
+Observed Statistic: The difference in means between the two groups.
+
+Rationale: If there is a higher number of steps, it suggests that the description is more likely to be left blank. This is because detailed steps may make the inclusion of a description less necessary, leading to a potential difference in the distribution of "n_steps" between cases where the description is present and cases where it is missing.
+<iframe src="assets/steps.html" width=800 height=600 frameBorder=0></iframe>
+We then use a permuatation test to shuffle the n_steps columns 500 times.
+<iframe src="assets/dist.html" width=800 height=600 frameBorder=0></iframe>
+The observed statistic is 0.71 and p-value is 0.0 because the distribution is so far from the observed statistic. This means we reject the null, and accept the null hypothesis. Missingness of description is MAR because description is dependent on n_steps. We reject null hypothesis that description is not dependent on n_steps. 
+
+## Hypothesis Testing
+H0: Average Ratings and total fat have no relationship, ratings are evenly distributed among different levels of fat 
+
+H1: Recipes with average higher ratings tend to have lower levels of fat
+
+Differences in means - Test Statistic 
+
+Significance level - 0.05
+
+Observed Pvalue: 3.22
+
+Pvalue: 0.0
+
+Reject null hypothesis that the two groups come from the same distriibution, but cannot conclude that high rating causes lower fat.
+
 ## Problem Identification & Introduction
 Uses the "recipes ratings" data from Project 3 which has been cleaned for this model. The datasets were merged, missing values were handled with being replaced with zero to avoid errors with pipelines since nan is incompatible, and columns were renamed for better comprehension. The full Exploratory Data Analysis can be available here for more information [Project 3](https://aadhyanav.github.io/Recipe_Ratings/). 
 
